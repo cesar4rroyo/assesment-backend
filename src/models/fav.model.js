@@ -18,4 +18,4 @@ const FavSchema = new mongoose.Schema({
     versionKey: false
 })
 
-export default module('fav', FavSchema)
+export default module('Fav', FavSchema)

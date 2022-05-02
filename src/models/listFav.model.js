@@ -9,16 +9,16 @@ const listFavSchema = new mongoose.Schema({
     favs: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "fav"
+            ref: "Fav"
         }
     ],
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user"
+        ref: "User"
     }
 },{
     timestamps: true,
     versionKey: false
 })
 
-export default module('listFav', listFavSchema)
+export default module('ListFav', listFavSchema)
