@@ -6,6 +6,7 @@ import listFavRoutes from './routes/listFav.routes.js'
 const app = express()
 
 app.use(morgan('dev'))
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.json({
@@ -15,8 +16,8 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('api/favs', listFavRoutes)
-app.use('api/local', authRoutes)
+app.use('/api/favs', listFavRoutes)
+app.use('/api/local', authRoutes)
 
 
 export default app;

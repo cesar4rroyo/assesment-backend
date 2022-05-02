@@ -21,12 +21,11 @@ router.post(
     body('username').not().isEmpty().withMessage('Username is required'),
     body('email').isEmail().withMessage('Email is required'),
     body('password').isLength({min: 6}).withMessage('Password must be at least 6 characters long'), 
-    [checkDuplicateUsernameOrEmail],
+    checkDuplicateUsernameOrEmail,
     signUp
 )
 router.post(
     '/login', 
-    body('email').isEmail().withMessage('Email is required'),
     signIn
 )
 
