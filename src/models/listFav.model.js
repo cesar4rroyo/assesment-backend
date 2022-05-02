@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+import mongoose from "mongoose"
 
 const listFavSchema = new mongoose.Schema({
     name:{
@@ -21,4 +20,4 @@ const listFavSchema = new mongoose.Schema({
     versionKey: false
 })
 
-export default module('ListFav', listFavSchema)
+export default mongoose.model('ListFav', listFavSchema)

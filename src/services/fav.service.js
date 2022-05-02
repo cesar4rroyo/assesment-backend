@@ -1,4 +1,4 @@
-import Fav from "../models/fav.model"
+import Fav from "../models/fav.model.js"
 
 export async function createFavService(req) {
     const {title, description, link} = req.body

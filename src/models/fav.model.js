@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+import mongoose from "mongoose"
 
 const FavSchema = new mongoose.Schema({
     title: {
@@ -18,4 +17,4 @@ const FavSchema = new mongoose.Schema({
     versionKey: false
 })
 
-export default module('Fav', FavSchema)
+export default mongoose.model('Fav', FavSchema)

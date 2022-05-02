@@ -1,4 +1,4 @@
-import ListFav from "../models/listFav.model"
+import ListFav from "../models/listFav.model.js"
 
 
 export async function createListFavService(req) {
@@ -9,7 +9,7 @@ export async function createListFavService(req) {
 export async function getListFavsService(req) {
     const listFavs = await ListFav.find()
     listFavs.forEach(listFav => {
-        await listFav.populate("user").populate("favs")
+        listFav.populate("user").populate("favs")
     })
     return listFavs
 }
