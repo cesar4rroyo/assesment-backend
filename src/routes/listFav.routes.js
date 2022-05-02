@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { createListFav, deleteListFavById, getListFavById, getListFavs } from "../controllers/listFav.controller";
-import { isAuthenticated } from "../middlewares/authjw";
+import { createListFav, deleteListFavById, getListFavById, getListFavs } from "../controllers/listFav.controller.js";
+import { isAuthenticated } from "../middlewares/authjw.js";
 
 
 const router = Router()
