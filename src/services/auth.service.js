@@ -8,6 +8,10 @@ export const getToken = async (id) => {
     });
 }
 
+export const decodeToken = async (token) => {
+    return jwt.verify(token, config.SECRET);
+}
+
 export const singUpService = async (req) => {
     const {username, email, password} = req.body
     const user = await User.create(

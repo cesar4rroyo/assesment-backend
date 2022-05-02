@@ -1,9 +1,16 @@
 import ListFav from "../models/listFav.model.js"
 
 
-export async function createListFavService(req) {
-    const listFav = await ListFav.create(req.body)
-    return listFav.populate("user").populate("favs")
+export async function createListFavService(req, user) {
+    const { name, favs } = req.body
+    const listFav = await ListFav.create(
+        {
+            name,
+            favs,
+            user: user._id
+        }
+    )
+    return listFav.populate('favs').populate('user')
 }
 
 export async function getListFavsService(req) {

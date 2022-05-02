@@ -1,3 +1,4 @@
+import jsonwebtoken from "jsonwebtoken";
 import { 
     createListFavService, 
     deleteListFavByIdService, 
@@ -5,11 +6,15 @@ import {
     getListFavsService, 
     updateListFavByIdService 
 } from "../services/listFav.service.js";
+import { decodeToken } from "../services/auth.service.js";
 
 
 export const createListFav = async (req, res) => {
     try {
-        const listFav = await createListFavService(req);
+        const token = req.headers["x-access-token"];
+        if (!token) throw new Error(`token is required`);
+        const user = decodeToken(token);
+        const listFav = await createListFavService(req, user);
         res.status(200).json({
             message: "List Fav created successfully",
             listFav
